@@ -24,6 +24,7 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ListComponent } from './pages/list/list.component';
 
 export const routes: Routes = [
     {
@@ -34,6 +35,10 @@ export const routes: Routes = [
                 path: "",
                 component: DashboardComponent,
             },
+            {
+                path: "list",
+                component: ListComponent
+            }
         ],
-    },
+    }
 ];
