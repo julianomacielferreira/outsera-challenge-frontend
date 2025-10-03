@@ -9,9 +9,28 @@ A aplicação deverá ser composta por 2 views:
 
 A página deve possuir um menu com links para as views.
 
-Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.17.
+## Requisitos do sistema
+
+1.​ O dashboard deve ser criado conforme especificado pelo anexo 1 (ver página de anexos) e
+deverá ser composto por 4 painéis com os seguintes requisitos:
+
+- Mostrar em uma tabela os anos que tiveram mais de um vencedor;
+- Mostrar em uma tabela os três estúdios com mais vitórias;
+- Mostrar em tabelas os produtores com maior e menor intervalo entre vitórias;
+- Exibir em tabela os vencedores de determinado ano selecionado através de um campo
+de busca.
+
+2.​ A view que lista todos os filmes conforme especificado pelo anexo 2 (ver página de anexos). 
+
+Deverá possuir paginação e conter ainda dois filtros:
+- Por ano;
+- Por vencedor.
+
+3.​ Criar testes unitários de todas as funcionalidades.
 
 ## Instalar Dependências
+
+Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.17.
 
 **1. Verifique se você possui instalado o [Node.js](https://nodejs.org/) (versão 18 ou superior):**
 
