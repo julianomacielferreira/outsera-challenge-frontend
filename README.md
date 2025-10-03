@@ -75,6 +75,79 @@ $ npm run start
 ![](src/assets/screenshots/page-dashboard.png)
 ![](src/assets/screenshots/page-list.png)
 
+## Estrutura de Arquivos
+
+```
+.
+├── angular.json
+├── LICENSE
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.ts
+│   │   ├── components
+│   │   │   ├── footer
+│   │   │   │   ├── footer.component.html
+│   │   │   │   ├── footer.component.scss
+│   │   │   │   ├── footer.component.spec.ts
+│   │   │   │   └── footer.component.ts
+│   │   │   ├── header
+│   │   │   │   ├── header.component.html
+│   │   │   │   ├── header.component.scss
+│   │   │   │   ├── header.component.spec.ts
+│   │   │   │   └── header.component.ts
+│   │   │   └── sidebar
+│   │   │       ├── sidebar.component.html
+│   │   │       ├── sidebar.component.scss
+│   │   │       ├── sidebar.component.spec.ts
+│   │   │       └── sidebar.component.ts
+│   │   ├── models
+│   │   │   ├── movies.ts
+│   │   │   ├── producers-response.ts
+│   │   │   ├── studio-winners.ts
+│   │   │   └── year-response.ts
+│   │   ├── pages
+│   │   │   ├── dashboard
+│   │   │   │   ├── dashboard.component.html
+│   │   │   │   ├── dashboard.component.scss
+│   │   │   │   ├── dashboard.component.spec.ts
+│   │   │   │   └── dashboard.component.ts
+│   │   │   ├── list
+│   │   │   │   ├── list.component.html
+│   │   │   │   ├── list.component.scss
+│   │   │   │   ├── list.component.spec.ts
+│   │   │   │   └── list.component.ts
+│   │   │   └── main
+│   │   │       ├── main.component.html
+│   │   │       ├── main.component.scss
+│   │   │       ├── main.component.spec.ts
+│   │   │       └── main.component.ts
+│   │   └── services
+│   │       ├── movies.service.spec.ts
+│   │       └── movies.service.ts
+│   ├── assets
+│   │   └── screenshots
+│   │       ├── page-dashboard.png
+│   │       └── page-list.png
+│   ├── environments
+│   │   └── environment.ts
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.scss
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+
+```
+
 ## Build
 
 Execute `ng build` para compilar o projeto. Os artefatos de compilação serão armazenados no diretório `dist/`.
