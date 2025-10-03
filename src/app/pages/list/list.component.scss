@@ -21,28 +21,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-table {
-  width: 100%;
-}
+:host {
+  table {
+    width: 100%;
+  }
 
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
 
-td,
-th {
-  width: 25%;
-  text-align: center;
-}
+  td,
+  th {
+    width: 25%;
+    text-align: center;
+  }
 
-.header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.filter-field {
-  width: 100%;
-  margin-top: 10px;
+  .filter-field {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .mat-mdc-row {
+    height: 30px;
+  }
+
+  .mat-mdc-cell {
+    padding: 0 16px;
+  }
 }
