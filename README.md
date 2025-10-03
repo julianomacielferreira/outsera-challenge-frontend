@@ -1,27 +1,85 @@
-# OutseraChallengeFrontend
+# Outsera Challenge Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Desenvolver uma interface para possibilitar a leitura da lista de indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards.
 
-## Development server
+A aplicação deverá ser composta por 2 views:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Dashboard;
+- Lista de todos os filmes.
 
-## Code scaffolding
+A página deve possuir um menu com links para as views.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.17.
+
+## Instalar Dependências
+
+**1. Verifique se você possui instalado o [Node.js](https://nodejs.org/) (versão 18 ou superior):**
+
+```bash
+$ node -v
+```
+
+A saída deve ser algo como:
+
+```bash
+v18.20.8
+```
+
+**2. Verifique se você possui a versão 10 ou superior do [npm](https://www.npmjs.com/) (gerenciador de pacotes do node):**
+
+```bash
+$ npm -v
+```
+A saída deve ser algo como:
+
+```bash
+10.8.2
+```
+
+**3. No _diretório raiz do projeto_, instale todas as dependências e bibliotecas:**
+
+```bash
+$ npm install
+```
+
+**4. Execute o seguinte comando:**
+
+```bash
+$ npm run start
+```
+
+**5. Em seguida, acesse [http://localhost:4200/](http://localhost:4200/) no seu navegador.**
+
+
+# Screenshots
+
+![](src/assets/screenshots/page-dashboard.png)
+![](src/assets/screenshots/page-list.png)
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Execute `ng build` para compilar o projeto. Os artefatos de compilação serão armazenados no diretório `dist/`.
 
-## Running unit tests
+## Executando testes unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Executando testes de ponta a ponta
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Execute `ng e2e` para executar os testes de ponta a ponta por meio de uma plataforma de sua escolha. Para usar este comando, você precisa primeiro adicionar um pacote que implemente recursos de teste de ponta a ponta.
 
-## Further help
+## Mais ajuda
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para obter mais ajuda com o Angular CLI, use `ng help` ou consulte a página [Visão geral e referência de comandos do Angular CLI](https://angular.io/cli).
+
+# Referências
+
+- Angular 17: [https://v17.angular.io/](https://v17.angular.io/)
+
+- Angular Material: [https://material.angular.io/](https://material.angular.io/)
+
+- Sass&trade;: [https://sass-lang.com/](https://sass-lang.com/)
+
+# License
+
+Please see the [license agreement](https://github.com/julianomacielferreira/outsera-challenge-frontend/blob/main/LICENSE).
