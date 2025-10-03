@@ -29,6 +29,7 @@ import YearResponse from '../models/year-response';
 import StudioWinners from '../models/studio-winners';
 import IntervalForProducers from '../models/producers-response';
 import Movie from '../models/movies';
+import MoviesResponse from '../models/movies';
 
 @Injectable({
   providedIn: 'root'
@@ -38,18 +39,34 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   public getYearsWithMultipleWinners(): Observable<YearResponse> {
-    return this.http.get<YearResponse>(`${environment.API_URL}/movies/yearsWithMultipleWinners`);
+    return this.http.get<YearResponse>(`${environment.API_URL}/yearsWithMultipleWinners`);
   }
 
   public getStudioWinners(): Observable<StudioWinners> {
-    return this.http.get<StudioWinners>(`${environment.API_URL}/movies/studiosWithWinCount`);
+    return this.http.get<StudioWinners>(`${environment.API_URL}/studiosWithWinCount`);
   }
 
   public getMaxMinWinIntervalForProducers(): Observable<IntervalForProducers> {
-    return this.http.get<IntervalForProducers>(`${environment.API_URL}/movies/maxMinWinIntervalForProducers`);
+    return this.http.get<IntervalForProducers>(`${environment.API_URL}/maxMinWinIntervalForProducers`);
   }
 
   public getMovieWinnersByYear(year: number): Observable<Array<Movie>> {
-    return this.http.get<Array<Movie>>(`${environment.API_URL}/movies/winnersByYear?year=${year}`);
+    return this.http.get<Array<Movie>>(`${environment.API_URL}/winnersByYear?year=${year}`);
   }
+
+  public getMovies(page: number, winner?: boolean, year?: number): Observable<MoviesResponse> {
+
+    let MOVIES_URL = `${environment.API_URL}?page=${page}&size=15`;
+
+    if (winner !== undefined) {
+      MOVIES_URL += `&winner=${winner}`;
+    }
+
+    if (year) {
+      MOVIES_URL += `&year=${year}`;
+    }
+
+    return this.http.get<MoviesResponse>(MOVIES_URL);
+  }
+
 }
