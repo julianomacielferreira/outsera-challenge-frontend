@@ -23,5 +23,5 @@
  */
 
 export const environment = {
-    API_URL: 'https://challenge.outsera.tech/api'
+    API_URL: 'https://challenge.outsera.tech/api/movies'
 };
