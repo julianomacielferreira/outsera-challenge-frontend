@@ -1,7 +1,18 @@
 <mat-nav-list>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+  <a
+    mat-list-item
+    routerLinkActive="list-item-active"
+    routerLink="/"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     Dashboard
   </a>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/list">List</a>
+  <a
+    mat-list-item
+    routerLinkActive="list-item-active"
+    routerLink="/list"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >List</a
+  >
 </mat-nav-list>
