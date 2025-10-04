@@ -105,7 +105,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   public filterByWinner(event: MatSelectChange): void {
 
     this.winner = event.value;
-    this.loadMovies(0,);
+    this.loadMovies(0);
   }
 
   private loadMovies(page: number): void {
