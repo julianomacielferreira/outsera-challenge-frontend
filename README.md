@@ -71,7 +71,7 @@ $ npm run start
 
 ## Executando testes unitários
 
-Execute `npm run test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
+Execute o comando `npm run test` para rodar os testes unitários via [Karma](https://karma-runner.github.io).
 
 # Screenshots
 
