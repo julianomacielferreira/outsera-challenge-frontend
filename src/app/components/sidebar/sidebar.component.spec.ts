@@ -21,26 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { SidebarComponent } from './sidebar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatListModule } from '@angular/material/list';
+import { By } from '@angular/platform-browser';
+import { RouterLinkWithHref } from '@angular/router';
 
 describe('SidebarComponent', () => {
-  let component: SidebarComponent;
-  let fixture: ComponentFixture<SidebarComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidebarComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(SidebarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      imports: [
+        MatListModule,
+        RouterTestingModule.withRoutes([]),
+        SidebarComponent
+      ]
+    }).compileComponents();
   });
 
-  it('should create', () => {
+  it('deve criar o componente', () => {
+    const fixture = TestBed.createComponent(SidebarComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
+  });
+
+  it('deve renderizar os links de navegação', () => {
+    const fixture = TestBed.createComponent(SidebarComponent);
+    fixture.detectChanges();
+    const links = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    expect(links.length).toBe(2);
+    expect(links[0].nativeElement.textContent).toContain('Dashboard');
+    expect(links[1].nativeElement.textContent).toContain('List');
+  });
+
+  it('deve ter os routerLinks corretos', () => {
+    const fixture = TestBed.createComponent(SidebarComponent);
+    fixture.detectChanges();
+    const links = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    expect(links[0].attributes['routerLink']).toBe('/');
+    expect(links[1].attributes['routerLink']).toBe('/list');
   });
 });
