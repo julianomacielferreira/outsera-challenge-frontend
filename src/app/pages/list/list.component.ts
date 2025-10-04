@@ -76,7 +76,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public filterByYear(event: Event) {
+  public filterByYear(event: Event): void {
 
     const value = (event.target as HTMLInputElement).value;
 
@@ -100,7 +100,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public filterByWinner(event: MatSelectChange) {
+  public filterByWinner(event: MatSelectChange): void {
 
     const winner = event.value;
     this.winner = (winner !== undefined) ? winner : undefined;
