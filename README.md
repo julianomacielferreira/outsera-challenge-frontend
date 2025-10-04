@@ -74,6 +74,7 @@ $ npm run start
 
 ![](src/assets/screenshots/page-dashboard.png)
 ![](src/assets/screenshots/page-list.png)
+![](src/assets/screenshots/components-unit-tests.png)
 
 ## Estrutura de Arquivos
 
