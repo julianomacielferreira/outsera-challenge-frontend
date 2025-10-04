@@ -50,11 +50,12 @@ export class ListComponent implements OnInit, AfterViewInit {
   public totalElements = 0;
   public isLoadingResults = true;
   public year = 0;
-  public winner = undefined;
+  public winner: boolean | undefined;
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
+
     this.loadMovies(0);
   }
 
@@ -82,34 +83,34 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     const regex = /^\d{4}$/;
 
+    const loadMoviesFn = () => {
+      this.loadMovies(0);
+      this.goToFirstPage();
+    };
+
     if (regex.test(value)) {
 
       this.year = parseInt(value);
 
-      this.loadMovies(0, this.winner, this.year);
-
-      this.goToFirstPage();
+      loadMoviesFn();
 
     } else if (value.length == 0) {
 
       this.year = 0;
 
-      this.loadMovies(0, this.winner, this.year);
-
-      this.goToFirstPage();
+      loadMoviesFn();
     }
   }
 
   public filterByWinner(event: MatSelectChange): void {
 
-    const winner = event.value;
-    this.winner = (winner !== undefined) ? winner : undefined;
-    this.loadMovies(0, this.winner, this.year);
+    this.winner = event.value;
+    this.loadMovies(0,);
   }
 
-  private loadMovies(page: number, winner?: boolean, year?: number): void {
+  private loadMovies(page: number): void {
 
-    this.moviesService.getMovies(page, winner, year).subscribe((response: MoviesResponse) => {
+    this.moviesService.getMovies(page, this.winner, this.year).subscribe((response: MoviesResponse) => {
       this.dataSource = new MatTableDataSource(response.content);
       this.dataSource.paginator = this.paginator;
       this.totalElements = response.totalElements;
