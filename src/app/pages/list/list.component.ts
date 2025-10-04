@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
@@ -40,22 +40,25 @@ import Movie from '../../models/movies';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent implements AfterViewInit {
+export class ListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'year', 'title', 'winner'];
-  dataSource!: MatTableDataSource<Movie>;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  public displayedColumns: string[] = ['id', 'year', 'title', 'winner'];
+  public dataSource!: MatTableDataSource<Movie>;
+  @ViewChild(MatPaginator)
+  public paginator!: MatPaginator;
 
-  totalElements = 0;
-  isLoadingResults = true;
-  year = 0;
-  winner = undefined;
+  public totalElements = 0;
+  public isLoadingResults = true;
+  public year = 0;
+  public winner = undefined;
 
   constructor(private moviesService: MoviesService) { }
 
-  ngAfterViewInit() {
-
+  ngOnInit() {
     this.loadMovies(0);
+  }
+
+  ngAfterViewInit() {
 
     this.paginator.page.pipe(
       startWith({}),
