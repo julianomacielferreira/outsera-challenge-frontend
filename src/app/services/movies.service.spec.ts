@@ -22,18 +22,111 @@
  * THE SOFTWARE.
  */
 import { TestBed } from '@angular/core/testing';
-
 import { MoviesService } from './movies.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { environment } from '../../environments/environment';
 
 describe('MoviesService', () => {
   let service: MoviesService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [MoviesService]
+    });
     service = TestBed.inject(MoviesService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
+  afterEach(() => {
+    httpMock.verify();
+  });
+
+  it('deve criar o serviço', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('deve chamar a API para getYearsWithMultipleWinners', () => {
+    const URL = `${environment.API_URL}/yearsWithMultipleWinners`;
+    const response: any = { years: [] };
+    service.getYearsWithMultipleWinners().subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getStudioWinners', () => {
+    const URL = `${environment.API_URL}/studiosWithWinCount`;
+    const response: any = { studios: [] };
+    service.getStudioWinners().subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getMaxMinWinIntervalForProducers', () => {
+    const URL = `${environment.API_URL}/maxMinWinIntervalForProducers`;
+    const response: any = { min: [], max: [] };
+    service.getMaxMinWinIntervalForProducers().subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getMovieWinnersByYear', () => {
+    const year = 2020;
+    const URL = `${environment.API_URL}/winnersByYear?year=${year}`;
+    const response: any = [];
+    service.getMovieWinnersByYear(year).subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getMovies', () => {
+    const page = 1;
+    const URL = `${environment.API_URL}?page=${page}&size=15`;
+    const response: any = { movies: [] };
+    service.getMovies(page).subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getMovies com winner', () => {
+    const page = 1;
+    const winner = true;
+    const URL = `${environment.API_URL}?page=${page}&size=15&winner=${winner}`;
+    const response: any = { movies: [] };
+    service.getMovies(page, winner).subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
+  });
+
+  it('deve chamar a API para getMovies com year', () => {
+    const page = 1;
+    const year = 2020;
+    const URL = `${environment.API_URL}?page=${page}&size=15&year=${year}`;
+    const response: any = { movies: [] };
+    service.getMovies(page, undefined, year).subscribe(data => {
+      expect(data).toEqual(response);
+    });
+    const req = httpMock.expectOne(URL);
+    expect(req.request.method).toBe('GET');
+    req.flush(response);
   });
 });
