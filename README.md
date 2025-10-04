@@ -28,7 +28,7 @@ Deverá possuir paginação e conter ainda dois filtros:
 
 3.​ Criar testes unitários de todas as funcionalidades.
 
-## Instalar Dependências
+## Como inicializar o Projeto
 
 Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.17.
 
@@ -69,6 +69,9 @@ $ npm run start
 
 **5. Em seguida, acesse [http://localhost:4200/](http://localhost:4200/) no seu navegador.**
 
+## Executando testes unitários
+
+Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
 
 # Screenshots
 
@@ -153,10 +156,6 @@ $ npm run start
 ## Build
 
 Execute `ng build` para compilar o projeto. Os artefatos de compilação serão armazenados no diretório `dist/`.
-
-## Executando testes unitários
-
-Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
 
 ## Mais ajuda
 
